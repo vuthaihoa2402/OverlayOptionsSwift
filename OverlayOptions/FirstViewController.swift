@@ -18,16 +18,15 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         
         var buttons = [HTOverlayViewButton]()
-        buttons.append(HTOverlayViewButton(id: "b1", text: "New"))
-        buttons.append(HTOverlayViewButton(id: "b2", text: "Share"))
-        buttons.append(HTOverlayViewButton(id: "b3", text: "Option"))
+        buttons.append(HTOverlayViewButton(id: "b1", text: "New", image: UIImage(named: "facebook_filled-32")))
+        buttons.append(HTOverlayViewButton(id: "b2", text: "Share", image: UIImage(named: "twitter_filled-32")))
+        buttons.append(HTOverlayViewButton(id: "b3", text: "Option", image: UIImage(named: "keyboard")))
         
         overlayMenu = HTOverlayWithButtonsView(_controller: (self.navigationController?.tabBarController!)!, buttons: buttons)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func onAdd(sender: AnyObject) {

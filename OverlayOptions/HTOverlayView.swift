@@ -183,10 +183,19 @@ class HTOverlayWithButtonsView: HTOverlayView{
             buttonOriginalPos.append(pos)
             
             btn.center = offsetPos
-            btn.setTitle(btnData.text, forState: UIControlState.Normal)
             mainView.addSubview(btn)
             buttonView.append(btn)
             height += 90
+            
+            let imageView = UIImageView(image: btnData.image)
+            imageView.center = CGPointMake(btn.frame.width/2, btn.frame.width/3)
+            btn.addSubview(imageView)
+            
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: btn.frame.width, height: btn.frame.height/3))
+            label.text = btnData.text
+            label.textAlignment = NSTextAlignment.Center
+            label.center = CGPointMake(btn.frame.width/2, btn.frame.height * 0.7)
+            btn.addSubview(label)
             
             btn.tag = buttonTag
             buttonTag++
@@ -197,7 +206,6 @@ class HTOverlayWithButtonsView: HTOverlayView{
     
     override func touchType1(sender: AnyObject!) {
         var btn = sender as! UIButton
-        print("touchType1: \(btn.tag)")
         UIView.animateWithDuration(0.3, animations: {() -> Void in
             btn.backgroundColor = UIColor.orangeColor()
             }, completion: {(complete)-> Void in
